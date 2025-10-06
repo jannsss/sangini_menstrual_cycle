@@ -72,3 +72,53 @@ div[style*="position:fixed;z-index:999999"] {
   display: none !important;
   visibility: hidden !important;
 }
+
+/* Specific targeting for "Made in Bolt" watermark */
+div[style*="position: fixed"][style*="bottom: 16px"][style*="right: 16px"][style*="z-index: 999999"],
+div[style*="position:fixed"][style*="bottom:16px"][style*="right:16px"][style*="z-index:999999"],
+div[style*="Made in Bolt"],
+span[style*="Made in Bolt"],
+a[style*="Made in Bolt"],
+*[title*="Made in Bolt"],
+*[alt*="Made in Bolt"],
+div:contains("Made in Bolt"),
+span:contains("Made in Bolt"),
+a:contains("Made in Bolt") {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide any element with Bolt branding */
+*[class*="bolt-watermark"],
+*[id*="bolt-watermark"],
+*[data-testid*="watermark"],
+*[data-component*="watermark"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Additional comprehensive hiding for any fixed positioned elements in bottom right */
+body > div:last-child[style*="position: fixed"][style*="bottom"][style*="right"],
+body > div:last-child[style*="position:fixed"][style*="bottom"][style*="right"],
+html > div:last-child[style*="position: fixed"][style*="bottom"][style*="right"],
+html > div:last-child[style*="position:fixed"][style*="bottom"][style*="right"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Force hide any element containing bolt text */
+*:has-text("Made in Bolt"),
+*:has-text("made in bolt"),
+*:has-text("MADE IN BOLT"),
+*:has-text("bolt.new") {
+  display: none !important;
+  visibility: hidden !important;
+}

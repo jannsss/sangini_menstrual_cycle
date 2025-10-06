@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide Bolt watermark */
+[data-bolt-watermark],
+.bolt-watermark,
+iframe[src*="bolt"],
+div[style*="position: fixed"][style*="bottom"][style*="right"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Additional selectors to ensure watermark is hidden */
+body > div:last-child[style*="position: fixed"],
+body > div[style*="z-index: 999999"],
+body > div[style*="pointer-events: none"] {
+  display: none !important;
+}

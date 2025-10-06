@@ -2,19 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide Bolt watermark */
+/* Comprehensive Bolt watermark removal */
 [data-bolt-watermark],
 .bolt-watermark,
 iframe[src*="bolt"],
-div[style*="position: fixed"][style*="bottom"][style*="right"] {
+div[style*="position: fixed"][style*="bottom"][style*="right"],
+div[style*="position:fixed"][style*="bottom"][style*="right"],
+div[style*="position: fixed"][style*="bottom: 16px"],
+div[style*="position: fixed"][style*="right: 16px"],
+div[style*="position:fixed"][style*="bottom:16px"],
+div[style*="position:fixed"][style*="right:16px"],
+div[style*="z-index: 999999"],
+div[style*="z-index:999999"],
+div[style*="pointer-events: none"],
+div[style*="pointer-events:none"],
+body > div:last-child[style*="position: fixed"],
+body > div:last-child[style*="position:fixed"],
+body > div[style*="Made in Bolt"],
+div[style*="Made in Bolt"],
+a[href*="bolt.new"],
+a[href*="bolt"],
+div:has(a[href*="bolt.new"]),
+div:has(a[href*="bolt"]),
+[class*="watermark"],
+[id*="watermark"],
+[class*="bolt"],
+[id*="bolt"],
+div[style*="font-family"][style*="position: fixed"],
+div[style*="font-family"][style*="position:fixed"],
+div[style*="background"][style*="position: fixed"][style*="bottom"],
+div[style*="background"][style*="position:fixed"][style*="bottom"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
 }
 
-/* Additional selectors to ensure watermark is hidden */
-body > div:last-child[style*="position: fixed"],
-body > div[style*="z-index: 999999"],
-body > div[style*="pointer-events: none"] {
+/* Hide any element containing "Made in Bolt" text */
+*:contains("Made in Bolt"),
+*:contains("made in bolt"),
+*:contains("MADE IN BOLT") {
   display: none !important;
+  visibility: hidden !important;
+}
+
+/* Additional comprehensive hiding */
+body::after,
+html::after,
+#root::after,
+div::after {
+  content: none !important;
+}
+
+/* Hide any fixed positioned elements in bottom right that might be watermarks */
+body > div[style*="position"][style*="bottom"][style*="right"]:not([class]):not([id]) {
+  display: none !important;
+}
+
+/* Target common watermark patterns */
+div[style*="position: fixed; bottom: 16px; right: 16px"],
+div[style*="position:fixed;bottom:16px;right:16px"],
+div[style*="position: fixed; z-index: 999999"],
+div[style*="position:fixed;z-index:999999"] {
+  display: none !important;
+  visibility: hidden !important;
 }
